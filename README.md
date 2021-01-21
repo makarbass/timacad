@@ -1,3 +1,3 @@
 # timacad
 TIMACAD
-Python, R, SQL
+Инструменты бизнес-аналитики R, Python, SQL
