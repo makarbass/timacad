@@ -1,0 +1,32 @@
+CREATE DATABASE STUDENTS;
+
+CREATE TABLE studgroup(
+	id INT(10) NOT NULL,
+    	surname VARCHAR(50) NOT NULL,
+    	name VARCHAR(50) NOT NULL,
+    	group_name INT(10) NOT NULL,
+    	PRIMARY KEY(id)
+); 
+
+CREATE TABLE classes(
+	id INT(10) NOT NULL,
+    class_id INT(10) NOT NULL,
+    grade INT(2),
+    PRIMARY KEY(id,class_id),
+    FOREIGN KEY (id) REFERENCES studgroup(id)
+); 
+
+
+INSERT INTO studgroup VALUES (0001,'Пушкин','Сергей',201);
+INSERT INTO studgroup VALUES (0002,'Есенин','Михаил',201);
+INSERT INTO studgroup VALUES (0003,'Лермонтов','Александр',201);
+
+INSERT INTO classes VALUES(0001,100,4);
+INSERT INTO classes VALUES(0002,100,5);
+INSERT INTO classes VALUES(0003,100,3);
+INSERT INTO classes VALUES(0001,200,3);
+INSERT INTO classes VALUES(0002,200,4);
+INSERT INTO classes VALUES(0003,200,5);
+
+CREATE VIEW sredniy AS
+	SELECT studgroup.id,surname,name,AVG(grade) FROM studgroup,classes WHERE studgroup.id=classes.id GROUP BY id
