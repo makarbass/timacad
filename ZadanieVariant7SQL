@@ -1,3 +1,6 @@
+# Создайте на языке запросов SQL следующие таблицы, создать связь между таблицами.
+# Создайте запрос, в котором выводился бы средний балл для каждого студента. В итоговую таблицу включить: Код студента, Фамилия, Имя, средний балл.
+
 CREATE DATABASE STUDENTS;
 
 CREATE TABLE studgroup(
@@ -10,10 +13,10 @@ CREATE TABLE studgroup(
 
 CREATE TABLE classes(
 	id INT(10) NOT NULL,
-    class_id INT(10) NOT NULL,
-    grade INT(2),
-    PRIMARY KEY(id,class_id),
-    FOREIGN KEY (id) REFERENCES studgroup(id)
+    	class_id INT(10) NOT NULL,
+    	grade INT(2),
+    	PRIMARY KEY(id,class_id),
+    	FOREIGN KEY (id) REFERENCES studgroup(id)
 ); 
 
 
